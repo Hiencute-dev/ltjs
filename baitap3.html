@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Kiểm tra tuổi </p>
+    Nhập ngày tháng năm sinh: <input type="text" id="ns"onkeyup="kiemTraTuoi()">
+    <p id="ketqua"></p>
+    
+    <script>
+        function kiemTraTuoi() {
+            var ngaySinh = document.getElementById("ns").value;
+            var ngayHienTai = new Date(); // Lấy ngày tháng hiện tại
+            
+            // Tạo đối tượng Date từ chuỗi ngày tháng sinh
+            var ngaySinhDate = new Date(ngaySinh);
+            
+            // Tính tuổi
+            var tuoi = ngayHienTai.getFullYear() - ngaySinhDate.getFullYear();
+            
+            // Kiểm tra nếu chưa đủ tuổi
+            if (tuoi < 18) {
+                document.getElementById("ketqua").innerHTML = "Bạn chưa đủ 18 tuổi để đi xem phim. Hãy ở nhà xem Doraemon nhé!";
+                return; 
+            }
+            
+            // Kiểm tra nếu chưa đến sinh nhật trong năm nay
+            var ngaySinhHienTai = new Date(ngayHienTai.getFullYear(), ngaySinhDate.getMonth(), ngaySinhDate.getDate());
+            if (ngaySinhHienTai > ngayHienTai) {
+                tuoi--;
+            }
+            document.getElementById("ketqua").innerHTML = "Bạn đã đủ " + tuoi + " tuổi để đi xem phim. Hãy đi xem phim nhà bà Nữ nha!";
+        }
+    </script>
+</body>
+</html>

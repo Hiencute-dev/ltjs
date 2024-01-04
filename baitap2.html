@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><b>Kiểm tra số chẵn lẻ </b></p>
+     Mời bạn nhập 1 số :<input type="text" id="so" onkeyup="myFunction1()">;
+    <p>Số đó là số:<span id="demo1"></span></p>
+    <script>
+        function myFunction1(){
+            var h= parseInt(document.getElementById("so").value);
+            if (h % 2 === 0) {
+                document.getElementById("demo1").innerHTML = "chẵn";
+            } else {
+                document.getElementById("demo1").innerHTML = "lẻ";
+            }
+        }
+    </script>
+</body>
+</html>
